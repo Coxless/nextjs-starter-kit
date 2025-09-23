@@ -13,8 +13,14 @@ source /root/.bashrc
 mise trust
 MISE_NODE_VERIFY=0 mise install
 
-echo "Using Node: $(which node) $(node -v)"
-echo "Using npm:  $(which npm)  $(npm -v)"
+
+# Find node and npm paths after mise install
+NODE_PATH="$(mise which node)"
+NPM_PATH="$(mise which npm)"
+export PATH="$(dirname "$NODE_PATH"):$(dirname "$NPM_PATH"):$PATH"
+
+echo "Using Node: $NODE_PATH $($NODE_PATH -v)"
+echo "Using npm:  $NPM_PATH  $($NPM_PATH -v)"
 
 export NPM_PREFIX="$HOME/.npm-global"
 mkdir -p "$NPM_PREFIX"

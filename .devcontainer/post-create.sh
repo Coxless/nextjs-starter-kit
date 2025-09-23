@@ -1,4 +1,9 @@
-#!/bin/sh
+#!/bin/bash
+
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> /home/$USERNAME/.bashrc
+echo 'eval "$(mise activate bash)"' >> /home/$USERNAME/.bashrc
+
+source /home/$USERNAME/.bashrc
 
 # Trust and install with mise
 mise trust

@@ -10,5 +10,3 @@ RUN apt-get update && apt-get install -y \
 
 # mise インストール（rootでインストール）
 RUN curl https://mise.run | bash
-RUN echo 'export PATH="$HOME/.local/bin:$PATH"' >> /home/$USERNAME/.bashrc
-RUN echo 'eval "$(mise activate bash)"' >> /home/$USERNAME/.bashrc

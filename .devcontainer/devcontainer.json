@@ -1,12 +1,12 @@
 {
-  "name": "next.js starter-kit",
+  "name": "nextjs-starter-kit",
   "build": {
     "dockerfile": "Dockerfile"
   },
   "features": {},
   "workspaceMount": "source=nextjs-starter-kit-volume,target=/workspace,type=volume",
-  "workspaceFolder": "/workspace",
-  "postCreateCommand": "git clone https://github.com/Coxless/nextjs-starter-kit.git .",
+  "workspaceFolder": "/nextjs-starter-kit",
+  "postCreateCommand": "[ -f .devcontainer/.devcontainer.json ] || git clone https://github.com/Coxless/nextjs-starter-kit.git .",
   "postStartCommand": "bash .devcontainer/post-create.sh"
 }
 

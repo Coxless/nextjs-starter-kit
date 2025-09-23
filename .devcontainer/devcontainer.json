@@ -4,7 +4,9 @@
     "dockerfile": "Dockerfile"
   },
   "features": {},
-  "remoteUser": "developer",
-  "postCreateCommand": "sh .devcontainer/post-create.sh"
+  "workspaceMount": "source=nextjs-starter-kit-volume,target=/workspace,type=volume",
+  "workspaceFolder": "/workspace",
+  "postCreateCommand": "git clone https://github.com/Coxless/nextjs-starter-kit.git .",
+  "postStartCommand": "bash .devcontainer/post-create.sh"
 }
 

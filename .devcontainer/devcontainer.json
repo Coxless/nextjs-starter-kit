@@ -5,7 +5,7 @@
   },
   "features": {},
   "workspaceMount": "source=nextjs-starter-kit-volume,target=/workspace,type=volume",
-  "workspaceFolder": "/nextjs-starter-kit",
+  "workspaceFolder": "/workspace/nextjs-starter-kit",
   "postCreateCommand": "[ -f .devcontainer/.devcontainer.json ] || git clone https://github.com/Coxless/nextjs-starter-kit.git .",
   "postStartCommand": "bash .devcontainer/post-create.sh"
 }

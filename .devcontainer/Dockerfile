@@ -1,12 +1,25 @@
-FROM node:22
+FROM debian:bullseye-slim
 
-# Install basic development tools
-RUN apt update && apt install -y less man-db sudo
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Ensure default `node` user has access to `sudo`
-ARG USERNAME=node
-RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+# 必要最低限のツールとsudoをインストール
+RUN apt-get update && apt-get install -y \
+    curl git unzip ca-certificates gnupg sudo \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# developerユーザー作成
+ARG USERNAME=developer
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    && echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
-# Set `DEVCONTAINER` environment variable to help with orientation
-ENV DEVCONTAINER=true
+# developerユーザーに切り替え
+USER $USERNAME
+
+# mise インストール（rootでインストール）
+RUN curl https://mise.run | bash
+RUN echo 'export PATH="$HOME/.local/bin:$PATH"' >> /home/$USERNAME/.bashrc

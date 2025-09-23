@@ -1,9 +1,10 @@
-// See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-	"name": "next.js starter-kit",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
-  "remoteUser": "node",
-  "postStartCommand": "npm ci && cd nextjs-app && npm ci"
+  "name": "next.js starter-kit",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {},
+  "remoteUser": "developer",
+  "postCreateCommand": "sh .devcontainer/post-create.sh"
 }
+

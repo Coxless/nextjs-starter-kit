@@ -8,6 +8,6 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/nodejs/release-keys.git /tmp/release-keys \
-    && cd /tmp/release-keys && ./cli.sh import \
-    && rm -rf /tmp/release-keys
+#RUN git clone https://github.com/nodejs/release-keys.git /tmp/release-keys \
+#    && cd /tmp/release-keys && ./cli.sh import \
+#    && rm -rf /tmp/release-keys

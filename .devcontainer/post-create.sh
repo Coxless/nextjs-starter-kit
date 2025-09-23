@@ -2,10 +2,10 @@
 
 ## mise インストール（rootでインストール）
 curl https://mise.run | bash
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> /home/$USERNAME/.bashrc
-echo 'eval "$(mise activate bash)"' >> /home/$USERNAME/.bashrc
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> /root/.bashrc
+echo 'eval "$(mise activate bash)"' >> /root/.bashrc
 
-source /home/$USERNAME/.bashrc
+source /root/.bashrc
 
 ## Trust and install with mise
 mise trust

@@ -7,6 +7,3 @@ RUN apt-get update && apt-get install -y \
     curl git unzip ca-certificates gnupg sudo \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-# mise インストール（rootでインストール）
-RUN curl https://mise.run | bash

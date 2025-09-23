@@ -9,7 +9,7 @@ source /root/.bashrc
 
 ## Trust and install with mise
 mise trust
-mise install
+MISE_NODE_VERIFY=0 mise install
 
 ## Install @aikidosec/safe-chain globally with pnpm
 npm install -g @aikidosec/safe-chain

@@ -1,12 +1,14 @@
 {
   "name": "nextjs-starter-kit",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "Dockerfile",
   },
-  "features": {},
+  "features": {"ghcr.io/devcontainers/features/github-cli:1":{}},
+  "remoteUser": "developer",
+  "overrideCommand": true,
   "workspaceMount": "source=nextjs-starter-kit-volume,target=/workspace,type=volume",
   "workspaceFolder": "/workspace",
-  "postCreateCommand": "if [ -z \"$(find . -mindepth 1 -print -quit)\" ]; then git clone https://github.com/Coxless/nextjs-starter-kit.git .; else echo 'Directory not empty, skipping clone'; fi",
-  "postStartCommand": "bash .devcontainer/post-attach.sh"
+  "onCreateCommand": "gh auth login && [ -z \"$(ls -A)\" ] && gh repo clone Coxless/nextjs-starter-kit . || echo 'Directory not empty, skipping clone'",
+  "postCreateCommand": "bash .devcontainer/post-create.sh"
 }
 

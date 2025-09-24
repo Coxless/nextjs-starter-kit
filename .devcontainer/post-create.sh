@@ -1,11 +1,9 @@
 #!/bin/bash
 
-## mise インストール（rootでインストール）
+## mise インストール
 curl https://mise.run | bash
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> $HOME/.bashrc
-export PATH="$HOME/.local/bin:$PATH"
 echo 'eval "$(mise activate bash)"' >> $HOME/.bashrc
-eval "$(mise activate bash)"
 
 source $HOME/.bashrc
 
